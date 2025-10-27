@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RiskyMart V4 — Health & Care Superstore</title>
+  <meta name="description" content="RiskyMart V4 — Health & Care Superstore demo by RiskyDev. Frontend-only, cart (localStorage), fly-to-cart animation, responsive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="rm-navbar" id="top">
+    <div class="rm-brand">
+      <img src="founder.jpg" alt="RiskyMart" class="brand-logo">
+      <div class="brand-txt">
+        <h1>RiskyMart</h1>
+        <small>Health & Care</small>
+      </div>
+    </div>
+
+    <div class="rm-actions">
+      <div class="search-wrap">
+        <input id="searchInput" placeholder="Cari produk, vitamin, skincare..." aria-label="Search products">
+      </div>
+      <button id="cartToggle" class="btn-cart" aria-expanded="false" title="Buka keranjang">
+        <svg class="icon-cart" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2zm2 0h2l1 2h-2l-1-2zM3 6h2l2.6 9.4c.16.6.73 1 1.36 1h7.08c.63 0 1.2-.4 1.36-1L21 6H5l-2-0z"/></svg>
+        <span id="cartCount">0</span>
+      </button>
+      <button id="menuToggle" class="hamburger" aria-label="Toggle menu">👇</button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <nav id="mobileMenu" class="mobile-menu" hidden>
+    <a href="#top">Home</a>
+    <a href="#products">Produk</a>
+    <a href="#promo">Promo</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="rm-hero">
+    <div class="hero-left">
+      <h2>Jaga Kesehatanmu — <span>RiskyMart</span></h2>
+      <p>Produk kesehatan & perawatan terpercaya. Vitamin, skincare, herbal, dan alat medis — dikurasi untuk kualitas & keamanan.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn primary" id="shopNow">Belanja Sekarang</a>
+        <a href="#promo" class="btn ghost">Lihat Promo</a>
+      </div>
+      <ul class="hero-features">
+        <li>Pengiriman cepat</li>
+        <li>Produk teruji kualitas</li>
+        <li>Garansi kepuasan</li>
+      </ul>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1622230208995-0f26eba75875?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" alt="Promo product">
+        <div class="badge">Diskon 20%</div>
+      </div>
+      <div class="bg-blob"></div>
+    </div>
+
+    <!-- subtle bubbles (decor) -->
+    <div class="bubbles" aria-hidden="true"></div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters container">
+    <div class="filter-group">
+      <label for="filterCategory">Kategori</label>
+      <select id="filterCategory">
+        <option value="all">Semua</option>
+        <option value="vitamin">Vitamin & Suplemen</option>
+        <option value="skincare">Skincare</option>
+        <option value="alat">Alat Kesehatan</option>
+        <option value="herbal">Herbal</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="sortBy">Urutkan</label>
+      <select id="sortBy">
+        <option value="new">Terbaru</option>
+        <option value="price-asc">Harga ↑</option>
+        <option value="price-desc">Harga ↓</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <main class="rm-main container" id="products">
+    <section class="product-grid" id="productGrid">
+      <!-- injected by script -->
+    </section>
+  </main>
+
+  <!-- CART SIDEBAR / POPUP -->
+  <aside class="cart-sidebar" id="cartSidebar" aria-hidden="true">
+    <div class="cart-top">
+      <h3>Keranjang</h3>
+      <button id="closeCart" class="close-btn" aria-label="Tutup">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="total">Total: <strong id="cartTotal">Rp0</strong></div>
+      <div class="cart-actions">
+        <button id="clearCart" class="ghost">Kosongkan</button>
+        <button id="checkoutBtn" class="primary">Checkout</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- PROMO -->
+  <section id="promo" class="promo container">
+    <div class="promo-card">
+      <div>
+        <h3>Promo Bulan Ini</h3>
+        <p>Diskon hingga 20% untuk vitamin & skincare pilihan. Gratis ongkir di atas Rp250.000.</p>
+      </div>
+      <a href="#products" class="btn">Belanja Sekarang</a>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" class="rm-footer">
+    <div class="footer-inner container">
+      <div>
+        <h4>RiskyMart</h4>
+        <p>Demo store oleh RiskyDev — fokus UI/UX & interaktif frontend.</p>
+      </div>
+      <div class="footer-links">
+<a href="https://wa.me/6285758450400" target="_blank" rel="noopener" class="social-link">
+  <img src="https://img.icons8.com/ios-filled/30/00ff88/whatsapp.png" alt="WhatsApp Icon">
+  WhatsApp
+</a>
+<a href="mailto:keuangan2411@gmail.com" target="_blank" class="social-link">
+  <img src="https://img.icons8.com/color/30/gmail--v1.png" alt="Gmail Icon">
+  Gmail
+</a>
+<a href="https://github.com/RiskyDev24" target="_blank" class="social-link">
+  <img src="https://img.icons8.com/ios-filled/30/000000/github.png" alt="GitHub Icon">
+  GitHub
+</a>
+      </div>
+    </div>
+    <div class="copyright">© 2025 RiskyMart — Built by RiskyDev</div>
+  </footer>
+
+  <!-- toast message -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
