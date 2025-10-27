@@ -25,7 +25,7 @@ Didesain untuk menunjukkan kemampuan frontend yang siap scale ke backend & payme
 
 ## 🌐 Live Preview
 👉 [Lihat Demo RiskyMart V4]
-(https://github.com/RiskyDev24/RiskyMart-V4-Portofolio-/tree/main)
+(https://riskydev24.github.io/RiskyMart-V4-Portofolio-/)
 ---
 
 ## 👤 Developer
